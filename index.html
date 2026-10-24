@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akuntansi UMKM</title>
+
+  <!-- Tailwind CSS Play CDN — development/prototyping only.
+       Trade-off: requires internet connection; styles generated at runtime;
+       not suitable for offline use or production performance.
+       See docs/architecture.md for production migration path. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Primary palette — green (60%)
+            primary: {
+              50:  '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+              950: '#052e16',
+            },
+            // Secondary palette — slate neutral (30%)
+            secondary: {
+              50:  '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            },
+            // Tertiary accent — amber (10%)
+            accent: {
+              50:  '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            },
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="h-full bg-secondary-50 text-secondary-800 font-sans antialiased">
+
+  <!-- Application root — layout injected by js/ui/layout.js -->
+  <div id="app" class="h-full"></div>
+
+  <!-- PIN gate overlay — shown before app if PIN is configured -->
+  <div id="pin-gate" class="hidden fixed inset-0 z-50 bg-secondary-900 flex items-center justify-center">
+    <div id="pin-gate-content"></div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-40 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
+
+  <!-- Modal container -->
+  <div id="modal-container" class="hidden fixed inset-0 z-30" role="dialog" aria-modal="true"></div>
+
+  <script type="module" src="js/app/init.js"></script>
+</body>
+</html>
